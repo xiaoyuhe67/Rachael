@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
 
+
 public class Rachael {
 	
 	public static void main(String[] args) {
@@ -34,6 +35,7 @@ public class Rachael {
 		System.out.println("Rachael will see you now.");
 		
 		//start time
+		
 		
 		int leave=0;
 		int moodCount=0;
@@ -94,6 +96,7 @@ public class Rachael {
 			//3 refer
 		}
 		
+	     
 		//print cost
 		
 		//save diary

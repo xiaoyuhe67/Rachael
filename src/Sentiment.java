@@ -11,7 +11,6 @@ public class Sentiment {
 	private static ArrayList<String> neutral = new ArrayList<String>();
 	
 	
-	
 	public ArrayList<String> createHappyList() throws IOException
 	{
 		ArrayList<String> arr = new ArrayList<String>();
@@ -62,19 +61,7 @@ public class Sentiment {
 		sad=createSadList();
 		neutral=createNeutralList();
 	}
-	public String DefineMoodyWords(String[] str) throws IOException
-	{	
-		String Content="";
-		for(int i=0;i<str.length;i++)
-		{
-			if(!happy.contains(str[i])&&!sad.contains(str))
-			{
-				Content="Does < "+ str[i]+ " > make you happy or sad?"+"\n"
-						+"Press '1' to define happy, press '2' to define sad, or press '3' to define neutral";
-			}
-		}	
-		return Content;
-	}
+	
 	public String DefineMoody(int happyCount, int sadCount)
 	{
 		String Content="";
@@ -92,21 +79,7 @@ public class Sentiment {
 		}
 		return Content;
 	}
-	public void userMoody(String str)
-	{
-		if(str.equals("1"))
-		{
-			addWordtoHappy(str);
-		}
-		else if(str.equals("2"))
-		{
-			addWordtoSad(str);
-		}
-		else if(str.equals("3"))
-		{
-			addWordtoNeutral(str);
-		}
-	}
+	
 	
 	
 	public void addWordtoHappy(String str)
