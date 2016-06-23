@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -82,17 +84,32 @@ public class Sentiment {
 	
 	
 	
-	public void addWordtoHappy(String str)
+	public void addWordtoHappy(String str) throws IOException
 	{
-		happy.add(str);
+		happy.add(str);	
+		FileWriter fwr = new FileWriter("happy.txt",true );
+		BufferedWriter bwr = new BufferedWriter(fwr);
+		 bwr.write(str);
+		 bwr.newLine();
+		 bwr.flush();
 	}
-	public void addWordtoSad(String str)
+	public void addWordtoSad(String str) throws IOException
 	{
 		sad.add(str);
+		FileWriter fwr = new FileWriter("sad.txt",true );
+		BufferedWriter bwr = new BufferedWriter(fwr);
+		 bwr.write(str);
+		 bwr.newLine();
+		 bwr.flush();
 	}
-	public void addWordtoNeutral(String str)
+	public void addWordtoNeutral(String str) throws IOException
 	{
 		neutral.add(str);
+		FileWriter fwr = new FileWriter("Neutral.txt",true );
+		BufferedWriter bwr = new BufferedWriter(fwr);
+		 bwr.write(str);
+		 bwr.newLine();
+		 bwr.flush();
 	}
 	
 	public int gethappyCount(String[] str)

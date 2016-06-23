@@ -65,15 +65,30 @@ public class Rachael {
 				   String happy = in.nextLine();
 				   if(happy.equals("1"))
 					{
-						mood.addWordtoHappy(word);
+						try {
+							mood.addWordtoHappy(word);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							System.out.println("Problem loading mood");
+						}
 					}
 					else if(happy.equals("2"))
 					{
-						mood.addWordtoSad(word);
+						try {
+							mood.addWordtoSad(word);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							System.out.println("Problem loading mood");
+						}
 					}
 					else if(happy.equals("3"))
 					{
-						mood.addWordtoNeutral(word);
+						try {
+							mood.addWordtoNeutral(word);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							System.out.println("Problem loading mood");
+						}
 					}
 				   
 				}
