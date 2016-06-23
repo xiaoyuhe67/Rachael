@@ -10,8 +10,7 @@ public class Sentiment {
 	private static ArrayList<String> sad = new ArrayList<String>();
 	private static ArrayList<String> neutral = new ArrayList<String>();
 	
-	private static int happyCount=0;
-	private static int sadCount=0;
+	
 	
 	public ArrayList<String> createHappyList() throws IOException
 	{
@@ -63,27 +62,17 @@ public class Sentiment {
 		sad=createSadList();
 		neutral=createNeutralList();
 	}
-	public String SearchMoodyWords(String[] str) throws IOException
+	public String DefineMoodyWords(String[] str) throws IOException
 	{	
 		String Content="";
-		SentimentInit();
 		for(int i=0;i<str.length;i++)
 		{
-			if(happy.contains(str[i]))
-			{
-				happyCount++;
-			}
-			else if(sad.contains(str[i]))
-			{
-				sadCount++;
-			}
-			else
+			if(!happy.contains(str[i])&&!sad.contains(str))
 			{
 				Content="Does < "+ str[i]+ " > make you happy or sad?"+"\n"
 						+"Press '1' to define happy, press '2' to define sad, or press '3' to define neutral";
 			}
-		}
-		
+		}	
 		return Content;
 	}
 	public String DefineMoody(int happyCount, int sadCount)
@@ -133,6 +122,32 @@ public class Sentiment {
 		neutral.add(str);
 	}
 	
+	public int gethappyCount(String[] str)
+	{
+		int happyCount=0;
+		for(int i=0;i<str.length;i++)
+		{
+			if(happy.contains(str[i]))
+			{
+				happyCount++;
+			}
+			
+		}
+		return happyCount;
+	}
+	public int getSadCount(String[] str)
+	{
+		int sadCount=0;
+		for(int i=0;i<str.length;i++)
+		{
+			if(sad.contains(str[i]))
+			{
+				sadCount++;
+			}
+			
+		}
+		return sadCount;
+	}
 	
 	
 	
