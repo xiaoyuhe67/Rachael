@@ -14,11 +14,14 @@ public class saveDiary {
 	public saveDiary(ArrayList<String> diary) {
 		saveDiary.diary=diary;
 	}
+	public saveDiary(){
+		
+	}
 
 	public static void save(String name) {
 		try {
 			 
-			 FileReader fr = new FileReader(diary+".txt");
+			 FileReader fr = new FileReader(name+".txt");
 			 BufferedReader br = new BufferedReader(fr);
 
 			FileWriter fwr = new FileWriter(name + ".txt", APPEND);
@@ -42,18 +45,18 @@ public class saveDiary {
 		}
 		
 	}
-//
-//	private static void addTodiary(String s) {
-//		// TODO Auto-generated method stub
-//		diary.add(s);
-//	}
-//	 public static void NewDiary(String session){
-//		 final File tempDiary = new File(session+".txt");
-//		 try {
-//			tempDiary.createNewFile();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	 }
+
+	public static void addTodiary(String s) {
+		// TODO Auto-generated method stub
+		diary.add(s);
+	}
+	 public static void NewDiary(String session){
+		 final File tempDiary = new File(session+".txt");
+		 try {
+			tempDiary.createNewFile();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	 }
 }

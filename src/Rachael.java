@@ -10,26 +10,29 @@ public class Rachael {
 		ArrayList<String> qualifiers = Init.Qualifier();
 		ArrayList<String> questions = Init.Questions();
 		ArrayList<String> hedges = Init.Hedges();
-		HashMap<String,String> replacements;
+		HashMap<String,String> replacements = Init.switchInit();
 		
 		Sentiment mood=new Sentiment();
-		
-		//Get sentiment lists
 		try{
 		mood.SentimentInit();
 		}
-		catch(Exception e){
+		catch(IOException e){
 			System.out.println("Problem loading mood");
 		}
+		
+		int respond2 = 0;
 		
 		Scanner in = new Scanner(System.in);
 		Random rand = new Random();
 		
 		System.out.println("Hi, Rachael will be ready for you shortly."
-				+ "Can I have your name?");
+				+ "\nCan I have your name?");
 		String name = in.nextLine();
 		
-		//Load diary
+		saveDiary.NewDiary(name);
+		referToEarlier today = new referToEarlier();
+		today.setReference(name);
+		saveDiary diary = new saveDiary(today.references);
 		
 		System.out.println("Rachael will see you now.");
 		
@@ -41,13 +44,10 @@ public class Rachael {
 		
 		System.out.println("Hi " + name + ", how are you?");
 		while(true){
-			int respond = rand.nextInt(4);
 			String input = in.nextLine();
-			String[] words = Print.replace(input, replacements);//todo
+			String[] words = Print.replace(input, replacements);
+			diary.addTodiary(Print.compile(words));
 			for(String word:words){
-				//if happy add 1
-				//if sad subtract 1
-				//if new clarify
 			   if(mood.getHappy().contains(word))
 			   {
 				  moodCount++;   
@@ -75,27 +75,37 @@ public class Rachael {
 					}
 				   
 				}
-					
 			}
-			//process input
+			//int respond = rand.nextInt(4);
+			int respond = 0;
+			if(input.equals("quit")){
+				System.out.println(Print.leave(leave));
+				break;
+			}
 			
-			
-			if(input.equals("quit"))System.out.println(Print.leave(leave));
-			
-			else if(moodCount>5||moodCount<5)
+			else if(moodCount>5||moodCount<-5)
 			{
 				System.out.println(mood.DefineMoody(moodCount, 0));
 				moodCount=0;
 			}
 			
-			else if(respond==0)System.out.println(Print.randFrom(hedges));
-			//1 random
-			//2 qualify
-			//3 refer
+			else if(respond==0&&respond2==0){
+				System.out.println(Print.randFrom(hedges));
+				respond2++;
+			}
+			else if(respond==1){
+				System.out.println(Print.randFrom(questions));
+			}
+			else if(respond==2){
+				System.out.println(Print.randFrom(qualifiers)+ " " + Print.compile(words));
+			}
+			else if(respond==0){
+				System.out.println(today.getReference());
+			}
 		}
-		
 		//print cost
 		
 		//save diary
+		in.close();
 	}
 }

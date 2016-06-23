@@ -33,9 +33,8 @@ public class referToEarlier {
 			e.printStackTrace();
 		  }
 	}
-	public String getReference(){
+	public  String getReference(){
 		int reference=rand.nextInt(references.size());
-		return "Before talked about"+references.get(reference);
+		return "Before you talked about "+references.get(reference)+ ". Tell me more about that.";
 	}
-
 }
