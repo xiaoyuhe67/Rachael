@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
 
+
 public class Rachael {
 	
 	public static void main(String[] args) {
@@ -38,6 +39,7 @@ public class Rachael {
 		
 		//start time
 		
+		
 		int leave=0;
 		int moodCount=0;
 		
@@ -63,15 +65,30 @@ public class Rachael {
 				   String happy = in.nextLine();
 				   if(happy.equals("1"))
 					{
-						mood.addWordtoHappy(word);
+						try {
+							mood.addWordtoHappy(word);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							System.out.println("Problem loading mood");
+						}
 					}
 					else if(happy.equals("2"))
 					{
-						mood.addWordtoSad(word);
+						try {
+							mood.addWordtoSad(word);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							System.out.println("Problem loading mood");
+						}
 					}
 					else if(happy.equals("3"))
 					{
-						mood.addWordtoNeutral(word);
+						try {
+							mood.addWordtoNeutral(word);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							System.out.println("Problem loading mood");
+						}
 					}
 				   
 				}
@@ -103,6 +120,11 @@ public class Rachael {
 				System.out.println(today.getReference());
 			}
 		}
+<<<<<<< HEAD
+=======
+		
+	     
+>>>>>>> 2d546bf09b4af80eb93377356d805a5bb402676f
 		//print cost
 		
 		//save diary
