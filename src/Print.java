@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 
@@ -10,5 +11,9 @@ public class Print {
 	public static String randFrom(ArrayList<String> list){
 		Random rand = new Random();
 		return list.get(rand.nextInt(list.size()));
+	}
+	
+	public static String[] replace(String input, HashMap<String,String> replacements){
+		return new String[0];
 	}
 }

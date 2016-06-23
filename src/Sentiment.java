@@ -148,6 +148,32 @@ public class Sentiment {
 		}
 		return sadCount;
 	}
+
+	public ArrayList<String> getHappy() {
+		return happy;
+	}
+
+	public void setHappy(ArrayList<String> happy) {
+		Sentiment.happy = happy;
+	}
+
+	public ArrayList<String> getSad() {
+		return sad;
+	}
+
+	public void setSad(ArrayList<String> sad) {
+		Sentiment.sad = sad;
+	}
+
+	public ArrayList<String> getNeutral() {
+		return neutral;
+	}
+
+	public void setNeutral(ArrayList<String> neutral) {
+		Sentiment.neutral = neutral;
+	}
+	
+	
 	
 	
 	
