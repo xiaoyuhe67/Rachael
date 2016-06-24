@@ -1,3 +1,5 @@
+package Rachael;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -36,7 +38,7 @@ public class saveDiary {
 			br.close();
 			bwr.flush();
 		    bwr.close();
-		    readDiary.close();
+		    //readDiary.close();
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -46,9 +48,14 @@ public class saveDiary {
 		
 	}
 
-	public static void addTodiary(String s) {
+	public void addTodiary(String s, String name) throws IOException {
 		// TODO Auto-generated method stub
 		diary.add(s);
+		FileWriter fwr = new FileWriter(name+".txt",true );
+		BufferedWriter bwr = new BufferedWriter(fwr);
+		bwr.write(s);
+		 bwr.newLine();
+		 bwr.flush();
 	}
 	 public static void NewDiary(String session){
 		 final File tempDiary = new File(session+".txt");
