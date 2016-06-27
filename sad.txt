@@ -526,3 +526,7 @@ superficial
 suppressed
 suspicious
 non
+homework
+need
+buy
+go

@@ -71,11 +71,11 @@ public class Sentiment {
 		String Content="";
 		if(happyCount>sadCount)
 		{
-			Content+="What are you so happy about?"+"\n";
+			Content+="What are you so happy about?";
 		}
 		else if(happyCount<sadCount)
 		{
-			Content+="What are you so sad about?"+"\n";
+			Content+="What are you so sad about?";
 		}
 		else
 		{

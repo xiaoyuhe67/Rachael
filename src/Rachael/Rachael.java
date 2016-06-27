@@ -103,9 +103,12 @@ public class Rachael {
 		int leave=0;
 		int moodCount=0;
 		
+		int conversationCount=0;
 		
 		System.out.println("Hi " + name + ", how are you?");
 		while(true){
+			conversationCount++;
+			
 			String input = in.nextLine();
 			String[] words = Print.replace(input, replacements);
 			
@@ -198,10 +201,15 @@ public class Rachael {
 			}
 			
 			else if(respond==0){
-				if (useName==0){
-					System.out.println(name+", "+Print.randFrom(hedges));
+				String hedge=Print.randFrom(hedges);
+				while(hedge.equals("It is getting late, maybe we had better quit.")&&conversationCount<10)
+				{
+					hedge=Print.randFrom(hedges);
+				}
+				if (useName==0){		
+					System.out.println(name+", "+hedge);
 				}else{
-					System.out.println(Print.randFrom(hedges));
+					System.out.println(hedge);
 				}
 			}
 			else if(respond==1){
